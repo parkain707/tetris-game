@@ -1,0 +1,23 @@
+/* Apply the custom font and basic styles */
+body {
+    font-family: 'Jua', sans-serif;
+    touch-action: manipulation; /* Prevent zoom on double tap */
+    overflow: hidden; /* Prevent scrolling */
+}
+
+/* Visual feedback for active buttons */
+.control-btn:active {
+    transform: scale(0.95);
+    filter: brightness(0.9);
+}
+
+/* Ensure canvas is responsive */
+canvas {
+    width: 100%;
+    height: auto;
+}
+
+/* Maintain aspect ratio for the main game board */
+#tetris-board {
+    aspect-ratio: 10 / 20;
+}

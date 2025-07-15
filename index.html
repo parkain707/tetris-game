@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>알록달록 테트리스</title>
+    
+    <!-- Tailwind CSS for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts for a friendly look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+    
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-blue-200 to-purple-200 flex items-center justify-center min-h-screen p-2">
+
+    <div class="w-full max-w-md mx-auto">
+        <div class="bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl p-4">
+            
+            <!-- Game Title -->
+            <h1 class="text-4xl sm:text-5xl text-center font-bold text-purple-600 mb-4">알록달록 테트리스</h1>
+
+            <!-- Game Board and Info -->
+            <div class="flex gap-4">
+                <!-- Main Game Area -->
+                <div id="game-area" class="relative w-2/3">
+                    <canvas id="tetris-board" class="bg-gray-800 rounded-lg shadow-inner"></canvas>
+                    
+                    <!-- Game Over Screen -->
+                    <div id="game-over-screen" class="absolute inset-0 bg-black/70 flex-col items-center justify-center rounded-lg text-white hidden">
+                        <h2 class="text-4xl font-bold mb-2">게임 오버!</h2>
+                        <p class="text-lg mb-4">최종 점수: <span id="final-score">0</span></p>
+                        <button id="restart-button" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-3 px-8 rounded-full text-xl shadow-lg transition-transform transform hover:scale-105">
+                            다시 하기
+                        </button>
+                    </div>
+                    
+                    <!-- Start Screen -->
+                     <div id="start-screen" class="absolute inset-0 bg-black/70 flex items-center justify-center rounded-lg">
+                        <button id="start-button" class="bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-10 rounded-full text-2xl shadow-lg transition-transform transform hover:scale-105">
+                            시작!
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Side Panel: Info and Next Piece -->
+                <div class="w-1/3 flex flex-col gap-4">
+                    <!-- Score, Level, Lines -->
+                    <div class="bg-blue-50 rounded-lg p-3 text-center">
+                        <p class="text-sm text-blue-500 font-bold">점수</p>
+                        <p id="score" class="text-2xl font-bold text-blue-800">0</p>
+                    </div>
+                    <div class="bg-green-50 rounded-lg p-3 text-center">
+                        <p class="text-sm text-green-500 font-bold">레벨</p>
+                        <p id="level" class="text-2xl font-bold text-green-800">1</p>
+                    </div>
+                    <div class="bg-red-50 rounded-lg p-3 text-center">
+                        <p class="text-sm text-red-500 font-bold">지운 줄</p>
+                        <p id="lines" class="text-2xl font-bold text-red-800">0</p>
+                    </div>
+                    <!-- Next Piece Preview -->
+                    <div class="bg-gray-800 rounded-lg p-2 text-center flex-grow">
+                        <p class="text-white text-sm font-bold mb-2">다음 블록</p>
+                        <canvas id="next-piece-canvas"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Controls -->
+            <div class="mt-4 grid grid-cols-3 grid-rows-2 gap-3">
+                <button id="rotate-btn" class="control-btn col-span-1 row-span-2 bg-pink-500 rounded-2xl text-white text-2xl font-bold shadow-md flex items-center justify-center">회전</button>
+                <button id="left-btn" class="control-btn bg-blue-500 rounded-2xl text-white text-3xl font-bold shadow-md">←</button>
+                <button id="right-btn" class="control-btn bg-blue-500 rounded-2xl text-white text-3xl font-bold shadow-md">→</button>
+                <button id="down-btn" class="control-btn bg-blue-500 rounded-2xl text-white text-3xl font-bold shadow-md">↓</button>
+                <button id="drop-btn" class="control-btn col-span-3 bg-purple-500 rounded-2xl text-white text-xl font-bold shadow-md mt-2 py-3">한번에 내리기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to your JavaScript file -->
+    <script src="script.js"></script>
+</body>
+</html>
